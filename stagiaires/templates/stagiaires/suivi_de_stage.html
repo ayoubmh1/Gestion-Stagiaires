@@ -1,0 +1,26 @@
+{% extends 'stagiaires/base.html' %}
+
+
+{% block content %}
+<div class="suivi-stage-content">
+    <h2 class="suivi-stage-title">Suivi de Stage</h2>
+
+    <!-- Form to add progress -->
+    <form class="suivi-stage-form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Ajouter le Progress</button>
+    </form>
+
+    <!-- List of progress updates -->
+    <h3 class="suivi-stage-subtitle">Mes Progrès</h3>
+    <ul class="suivi-stage-progress-list">
+        {% for update in progress_updates %}
+        <li class="suivi-stage-progress-item">
+            <strong>{{ update.date }}</strong>: {{ update.description }}<br>
+            <em>Next Steps: {{ update.next_steps }}</em>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

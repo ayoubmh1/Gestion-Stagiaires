@@ -1,0 +1,12 @@
+{% extends 'stagiaires/base.html' %}
+
+{% block content %}
+<div class="project-submission-container">
+    <h2 class="project-submission-title">Soumettre un Projet</h2>
+    <form method="post" enctype="multipart/form-data" class="project-submission-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="project-submission-button">Soumettre</button>
+    </form>
+</div>
+{% endblock %}

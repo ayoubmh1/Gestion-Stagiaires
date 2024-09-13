@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
+</head>
+
+<body>
+    <img src="{% static 'img/logo.jpg' %}" alt="3dsf Logo" class="logo">
+    <div class="login-container">
+        <h1>Login</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+        <p>No account yet? create one<a href="{% url 'register' %}"> Register here</a></p>
+    </div>
+</body>
+</html>

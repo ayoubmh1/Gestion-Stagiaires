@@ -1,0 +1,63 @@
+{% extends 'stagiaires/base.html' %}
+{% load static %}
+{% block title %}Tableau de bord Stagiaire{% endblock %}
+
+{% block content %}
+<div class="custom-main-content">
+    <!-- Image Banner -->
+    <div class="custom-banner">
+        <img src="{% static 'img/image-dash.jpg' %}" alt="Banner Image">
+    </div>
+
+    <!-- Stats Section -->
+    <div class="custom-stats-container">
+        <div class="custom-stat">
+            <i class="fas fa-briefcase"></i>
+            <h3>Stages disponibles</h3>
+            <span class="custom-stat-number">{{ stages_disponibles.count }}</span>
+        </div>
+        <div class="custom-stat">
+            <i class="fas fa-file-upload"></i>
+            <h3>Présentations uploadées</h3>
+            <span class="custom-stat-number">{{ presentation_files_count }}</span>
+        </div>
+        <div class="custom-stat">
+            <i class="fas fa-paper-plane"></i>
+            <h3>Nombre de candidatures</h3>
+            <span class="custom-stat-number">{{ mes_candidatures.count }}</span>
+        </div>
+        <div class="custom-stat">
+            <i class="fas fa-user-times"></i>
+            <h3>Absences au stage</h3>
+            <span class="custom-stat-number">{{ absences_count }}</span>
+        </div>
+        <div class="custom-stat">
+            <i class="fas fa-clock"></i>
+            <h3>Retards</h3>
+            <span class="custom-stat-number">{{ retards_count }}</span>
+        </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="custom-cards-container">
+        <div class="custom-card">
+            <h4>Sujet de stage:</h4>
+            {% if mes_stages_actuels.exists %}
+                <p>{{ mes_stages_actuels.first.sujet }}</p>
+            {% else %}
+                <p>Aucun stage actuel.</p>
+            {% endif %}
+            <button class="custom-btn-see-more">Voir plus</button>
+        </div>
+        <div class="custom-card">
+            <h4>Encadrant:</h4>
+            {% if encadreur %}
+                <p>{{ encadreur.prenom }} {{ encadreur.nom }}</p>
+            {% else %}
+                <p>Aucun encadrant assigné.</p>
+            {% endif %}
+            <button class="custom-btn-see-more">Voir plus</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

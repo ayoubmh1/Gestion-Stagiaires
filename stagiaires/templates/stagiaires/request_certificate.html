@@ -1,0 +1,21 @@
+{% extends "stagiaires/base.html" %}
+
+{% block content %}
+  <div class="certificate-request-container">
+    <h2>Demander une attestation de Stage</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Demander l'attestation</button>
+    </form>
+
+    {% if certificate_request and certificate_request.status == 'approved' %}
+      <p>Votre demande d'attestation a été approuvée. Vous pouvez le télécharger ici :</p>
+      <a href="{% url 'download_certificate' certificate_request.id %}" class="btn btn-secondary">Télécharger l'attestation</a>
+    {% elif certificate_request and certificate_request.status == 'pending' %}
+      <p>Votre demande d'attestation est en attente d'approbation.</p>
+    {% elif certificate_request and certificate_request.status == 'rejected' %}
+      <p>Votre demande d'attestation a été rejetée.</p>
+    {% endif %}
+  </div>
+{% endblock %}

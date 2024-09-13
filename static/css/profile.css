@@ -1,0 +1,66 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+}
+
+.user-profile-container {
+    max-width: 600px; 
+    margin: 30px auto; 
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-profile-container .form-group {
+    margin-bottom: 15px;
+}
+
+.user-profile-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.user-profile-container input,
+.user-profile-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.user-profile-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-profile-container button:hover {
+    background-color: #45a049;
+}
+
+.user-profile-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-profile-container .btn:hover {
+    background-color: #45a049;
+}

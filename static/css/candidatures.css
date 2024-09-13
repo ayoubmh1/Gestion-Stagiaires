@@ -1,0 +1,45 @@
+.mes-candidatures-container .encadreur-details {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+.delete-btn,
+.encadreur-btn {
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    width: fit-content; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.delete-btn:hover {
+    background-color: darkgreen;
+}
+
+.encadreur-btn:hover {
+    background-color: #45a049; 
+}
+
+.mes-candidatures-container {
+}
+
+.mes-candidatures-container .candidatures-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.mes-candidatures-container .candidature-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}

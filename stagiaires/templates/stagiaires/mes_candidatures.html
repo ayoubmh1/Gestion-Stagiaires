@@ -1,0 +1,37 @@
+{% extends 'stagiaires/base.html' %}
+
+{% block title %}Mes Candidatures{% endblock %}
+
+{% block content %}
+<div class="mes-candidatures-container">
+    <h2>Mes Candidatures</h2>
+    <ul class="candidatures-list">
+        {% for application in mes_candidatures %}
+        <li class="candidature-item">
+            <strong>{{ application.stage.sujet }}</strong><br>
+            Date de candidature : {{ application.date_de_candidature }}<br>
+            <span class="status {{ application.statut }}">
+                Statut : {{ application.statut }}
+            </span><br>
+
+            {% if application.statut == 'accepté' and application.encadreur %}
+                <button type="button" class="encadreur-btn" onclick="showEncadreurDetails('{{ application.id }}')">
+                    Voir les détails de l'encadreur
+                </button>
+                <div id="encadreur-details-{{ application.id }}" class="encadreur-details" style="display: none;">
+                    <p><strong>Nom:</strong> {{ application.encadreur.nom }} {{ application.encadreur.prenom }}</p>
+                    <p><strong>Email:</strong> {{ application.encadreur.email }}</p>
+                    <p><strong>Téléphone:</strong> {{ application.encadreur.telephone }}</p>
+                    <p><strong>Spécialité:</strong> {{ application.encadreur.specialite }}</p>
+                </div>
+            {% endif %}
+
+            <form action="{% url 'delete_application' application.id %}" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette candidature?');">
+                {% csrf_token %}
+                <button type="submit" class="delete-btn">Supprimer</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{#{% extends 'stagiaires/base.html' %} {% load static %}#}
+{##}
+{#{% block content %}#}
+{#  <div class="content">#}
+{#    <h2>Stages Disponibles</h2>#}
+{#    <div class="stages-container">#}
+{#      {% for stage in stages_disponibles %}#}
+{#      <div class="stage-card">#}
+{#        <h3>{{ stage.sujet }}</h3>#}
+{#        <p>{{ stage.description|truncatewords:20 }}</p>#}
+{#        <p>Du {{ stage.date_de_debut }} au {{ stage.date_de_fin }}</p>#}
+{#        <button class="details-btn" onclick="showDetails('{{ stage.id }}')">#}
+{#          Voir détails#}
+{#        </button>#}
+{#      </div>#}
+{##}
+{#      <!-- Modal for Stage Details -->#}
+{#      <div id="modal-{{ stage.id }}" class="modal">#}
+{#        <div class="modal-content">#}
+{#          <span class="close" onclick="closeDetails('{{ stage.id }}')">×</span>#}
+{#          <h3>{{ stage.sujet }}</h3>#}
+{#          <p>{{ stage.description }}</p>#}
+{#          <p>Du {{ stage.date_de_debut }} au {{ stage.date_de_fin }}</p>#}
+{##}
+{#          {% if stage.already_applied %}#}
+{#          <button type="button" disabled>#}
+{#            Vous avez déjà postulé, attendez une réponse#}
+{#          </button>#}
+{#          {% else %}#}
+{#          <form action="{% url 'postuler_stage' stage.id %}" method="post">#}
+{#            {% csrf_token %}#}
+{#            <button type="submit">Postuler</button>#}
+{#          </form>#}
+{#          {% endif %}#}
+{#        </div>#}
+{#      </div>#}
+{##}
+{#      {% endfor %}#}
+{#    </div>#}
+{#  </div>#}
+{#{% endblock %}#}
+
+{% extends 'stagiaires/base.html' %} {% load static %}
+
+{% block title %}Stages Disponibles{% endblock %}
+
+{% block content %}
+  <div class="content">
+    <h2>Stages Disponibles</h2>
+    <div class="stages-container">
+      {% for stage in stages_disponibles %}
+        <div class="stage-card">
+          <h3>{{ stage.sujet }}</h3>
+          <p class="description">{{ stage.description|truncatewords:20 }}</p>
+          <p class="dates">Du {{ stage.date_de_debut }} au {{ stage.date_de_fin }}</p>
+          <button class="details-btn" onclick="showDetails('{{ stage.id }}')">Voir détails</button>
+        </div>
+
+        <!-- Modal for Stage Details -->
+        <div id="modal-{{ stage.id }}" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeDetails('{{ stage.id }}')">×</span>
+            <h3>{{ stage.sujet }}</h3>
+            <p class="description">{{ stage.description }}</p>
+            <p class="dates">Du {{ stage.date_de_debut }} au {{ stage.date_de_fin }}</p>
+
+            {% if stage.already_applied %}
+              <button type="button" disabled class="btn-disabled">Vous avez déjà postulé, attendez une réponse</button>
+            {% else %}
+              <form action="{% url 'postuler_stage' stage.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="details-btn">Postuler</button>
+              </form>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

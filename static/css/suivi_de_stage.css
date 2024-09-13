@@ -1,0 +1,74 @@
+.suivi-stage-content {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.suivi-stage-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.suivi-stage-form {
+  margin-bottom: 20px;
+}
+
+.suivi-stage-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.suivi-stage-form input,
+.suivi-stage-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.suivi-stage-form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.suivi-stage-subtitle {
+    font-size: 1.5em;
+    margin-top: 40px;
+    color: #333;
+}
+
+.suivi-stage-progress-list {
+    list-style: none;
+    padding: 0;
+}
+
+.suivi-stage-progress-item {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.suivi-stage-progress-item strong {
+    color: #007bff;
+}
+
+.suivi-stage-progress-item em {
+    display: block;
+    margin-top: 10px;
+    color: #555;
+    font-size: 0.9em;
+}

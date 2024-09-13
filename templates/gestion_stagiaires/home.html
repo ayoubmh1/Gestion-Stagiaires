@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+</head>
+
+<body>
+    <img src="{% static 'img/logo.jpg' %}" alt="3dsf Logo" class="logo">
+    <div class="container">
+        <h1>Bienvenue sur le portail des stages du 3DSF</h1>
+        <div class="links">
+            <a href="{% url 'login' %}" class="btn">Se connecter</a>
+            <a href="{% url 'register' %}" class="btn">Creer compte</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/candidatures.css' %}">
+    <link rel="stylesheet" href="{% static 'css/suivi_de_stage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/soumettre_projet.css' %}">
+    <link rel="stylesheet" href="{% static 'css/upload_files.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tableau_de_bord.css' %}">
+    <link rel="stylesheet" href="{% static 'css/demander_attestation.css' %}">
+    <script src="{% static 'js/mes_candidatures.js' %}"></script>
+    <script src="{% static 'js/stages_disponibles.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="vertical-navbar">
+            <div class="logo-container">
+                <img src="{% static 'img/logo.jpg' %}" alt="Logo" class="logo">
+            </div>
+            <a href="{% url 'stagiaire_dashboard' %}">Tableau de bord</a>
+            <a href="{% url 'stages_disponibles' %}">Stages Disponibles</a>
+            <a href="{% url 'mes_candidatures' %}">Mes Candidatures</a>
+            <a href="{% url 'suivi_de_stage' %}">Suivi de Stage</a>
+            <a href="{% url 'soumettre_projet' %}">Projet Realise</a>
+            <a href="{% url 'request_certificate' %}">Attestation de stage</a>
+            <a href="{% url 'upload_files' %}">Bibliotheque</a>
+            <a href="{% url 'profile' %}">Profile</a>
+            <a href="#">Contact</a>
+            <form id="logout-form" action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn-link">Déconnexion</button>
+            </form>
+        </div>
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+.certificate-request-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-request-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.certificate-request-container .form-group {
+  margin-bottom: 15px;
+}
+
+.certificate-request-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.certificate-request-container input,
+.certificate-request-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.certificate-request-container button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.certificate-request-container button:hover {
+  background-color: #45a049;
+}
+
+.certificate-request-container .btn {
+  background-color: #4CAF50; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.certificate-request-container .btn:hover {
+  background-color: #45a049; 
+}
+
+.certificate-request-container .btn-secondary {
+  background-color: #6c757d; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.certificate-request-container .btn-secondary:hover {
+  background-color: #5a6268; 
+}

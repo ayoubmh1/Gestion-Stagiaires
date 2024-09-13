@@ -1,0 +1,15 @@
+{% extends 'stagiaires/base.html' %}
+
+{% block title %}Profile de {{ request.user.username }}{% endblock %}
+
+
+{% block content %}
+<div class="user-profile-container">
+    <h2>Profile de {{ request.user.username }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+</div>
+{% endblock %}
